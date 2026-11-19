@@ -1,0 +1,95 @@
+KESTREL FREIGHT PVT LTD
+PROJECT ATLAS STEERING COMMITTEE - MINUTES OF MEETINGS (OCTOBER-NOVEMBER 2026)
+Document: KF-PMO-ATL-MIN | Classification: Internal | Secretary: Neha Joshi (PMO)
+
+======================================================================
+MEETING 7 - 9 October 2026, 11:00-12:30, Pune head office (Board room 2)
+======================================================================
+Present: Kavya Sharma (CFO, chair), Arjun Rao (IT Manager), Priya Nair (Operations Head), Neha Joshi (PMO)
+Apologies: Vikram Desai (CEO)
+
+1. Pilot results
+Priya presented the Pune pilot results: fuel use down 8%, on-time delivery up 2.1 points, and driver feedback
+mostly positive. Drivers asked for Marathi and Hindi voice prompts in the app.
+
+2. Rollout approach
+The committee agreed to roll out hub by hub, starting with Mumbai and Pune, followed by Bengaluru, Chennai,
+Ahmedabad and Delhi.
+
+Decisions
+- Approve rollout order: Mumbai, Pune, Bengaluru, Chennai, Ahmedabad, Delhi.
+- Add Marathi and Hindi voice prompts before national launch.
+
+Action items
+- Arjun Rao: confirm device delivery schedule with TrackPoint by 16 October 2026.
+- Priya Nair: nominate one champion driver per hub by 20 October 2026.
+- Neha Joshi: circulate the updated project plan by 14 October 2026.
+
+======================================================================
+MEETING 8 - 23 October 2026, 11:00-12:00, video call
+======================================================================
+Present: Kavya Sharma (chair), Arjun Rao, Priya Nair, Neha Joshi, Rohit Bansal (TrackPoint account manager)
+
+1. Device supply
+TrackPoint reported a chip shortage. They can supply 700 devices by 30 November 2026 and the remaining 500 by
+20 December 2026. Arjun noted that installation takes about 25 minutes per truck.
+
+2. Budget
+Spend to date is Rs. 2.6 crore against the Rs. 6.5 crore budget. Driver training costs are trending higher than
+planned because sessions must be held in small groups across shifts.
+
+Decisions
+- Accept split delivery from TrackPoint, subject to written confirmation.
+- Prepare a revised training budget for the next meeting.
+
+Action items
+- Rohit Bansal (TrackPoint): send written delivery commitment by 30 October 2026.
+- Priya Nair: estimate driver training cost per hub by 3 November 2026.
+
+======================================================================
+MEETING 9 - 6 November 2026, 11:00-12:30, Pune head office (Board room 2)
+======================================================================
+Present: Kavya Sharma (chair), Arjun Rao, Priya Nair, Neha Joshi, vendor representative from TrackPoint
+Apologies: Rohit Bansal
+
+1. Device delivery
+TrackPoint confirmed 700 of 1,200 devices will arrive by 30 November 2026. The remaining 500 are expected by
+20 December 2026. Priya said installing in two batches is workable if each hub gets a two-week window.
+
+2. Launch date
+The team agreed to keep 15 January 2027 as the launch date for the first 700 trucks. The remaining trucks follow
+by 15 February 2027. If the second batch of devices slips beyond 31 December 2026, the second phase moves to March.
+
+3. Budget
+Arjun reported spend of Rs. 2.9 crore against the Rs. 6.5 crore budget. Driver training will cost Rs. 35 lakh
+more than planned. Kavya will seek board approval in December.
+
+4. Risks
+- Device delay (owner: Arjun Rao)
+- Driver adoption in Delhi, where attrition is highest (owner: Priya Nair)
+- Data quality from older trucks without CAN-bus access (owner: Arjun Rao)
+
+Decisions
+- Keep 15 January 2027 as the phase 1 launch date.
+- Seek board approval for the additional Rs. 35 lakh training budget.
+
+Action items
+- Arjun Rao: send the revised device installation plan by 13 November 2026.
+- Priya Nair: schedule driver training for Pune and Mumbai hubs by 30 November 2026.
+- Kavya Sharma: take the Rs. 35 lakh training increase to the board for approval in December 2026.
+- TrackPoint: confirm the delivery date for the remaining 500 devices in writing by 15 November 2026.
+- Neha Joshi: book installation bays at Mumbai and Pune hubs for 1-14 December 2026.
+
+======================================================================
+OPEN ACTION TRACKER (as of 6 November 2026)
+======================================================================
+ID   Owner          Action                                              Due              Status
+A-21 Arjun Rao      Revised device installation plan                    13 Nov 2026      Open
+A-22 Priya Nair     Driver training schedule, Pune and Mumbai           30 Nov 2026      Open
+A-23 Kavya Sharma   Board approval for Rs. 35 lakh training budget      Dec 2026         Open
+A-24 TrackPoint     Written date for remaining 500 devices              15 Nov 2026      Open
+A-25 Neha Joshi     Book installation bays, Mumbai and Pune             20 Nov 2026      Open
+A-18 Priya Nair     Champion driver per hub                             20 Oct 2026      Closed
+A-19 Rohit Bansal   Written delivery commitment                         30 Oct 2026      Overdue
+
+Next meeting: 20 November 2026, 11:00, video call.

@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Doc Intelligence</title>
+  <link rel="stylesheet" href="/static/style.css?v=3">
+  <script src="/static/app.js?v=3" defer></script>
+</head>
+<body>
+  <!-- Sign in -->
+  <section id="auth-view" class="auth-wrap" hidden>
+    <div class="auth-card">
+      <div class="logo">DI</div>
+      <h1 id="auth-title">Sign in to Doc Intelligence</h1>
+      <p class="muted">Upload any documents, get a cited brief of each, and ask questions answered only from your files.</p>
+      <form id="auth-form" method="post">
+        <label>Email <input type="email" name="email" required autocomplete="email"></label>
+        <label>Password <input type="password" name="password" required minlength="12" autocomplete="current-password"></label>
+        <p class="error" id="auth-error" role="alert"></p>
+        <button type="submit" class="primary wide" id="auth-submit">Sign in</button>
+      </form>
+      <p class="muted small center"><span id="auth-switch-text">No account?</span>
+        <button class="link" id="auth-switch" type="button">Create one</button></p>
+    </div>
+  </section>
+
+  <!-- App -->
+  <div id="app-view" class="shell" hidden>
+    <nav class="sidebar">
+      <div class="brand"><span class="logo sm">DI</span> Doc Intelligence</div>
+      <div class="side-label">Collections <button id="new-collection" class="icon-btn" title="New collection" type="button">+</button></div>
+      <form id="collection-form" class="collection-form" hidden>
+        <input name="name" maxlength="120" placeholder="Collection name" required>
+      </form>
+      <ul id="collection-list" class="side-list"></ul>
+      <div class="sidebar-foot">
+        <div class="muted small" id="status-line"></div>
+        <div class="muted small" id="user-email"></div>
+        <button id="logout" class="link small" type="button">Log out</button>
+      </div>
+    </nav>
+
+    <main class="content">
+      <header class="page-head">
+        <div>
+          <h1 id="collection-title"></h1>
+          <p class="muted" id="collection-meta"></p>
+        </div>
+        <div class="tabs" role="tablist">
+          <button class="tab-btn active" data-tab="documents" type="button">Documents</button>
+          <button class="tab-btn" data-tab="ask" type="button">Ask</button>
+          <button class="tab-btn" data-tab="search" type="button">Search</button>
+          <button class="tab-btn quiet" id="collection-menu" type="button" title="Collection settings">⋯</button>
+        </div>
+      </header>
+
+      <!-- Documents -->
+      <section id="tab-documents" class="tab">
+        <div id="library" class="card">
+          <label id="dropzone" class="dropzone">
+            <input type="file" id="file-input" multiple accept=".pdf,.docx,.pptx,.xlsx,.csv,.md,.txt">
+            <strong>Drop files here or click to upload</strong>
+            <span class="muted small">PDF, Word, PowerPoint, Excel, CSV, Markdown or text · up to 25 MB each</span>
+          </label>
+          <div id="upload-queue"></div>
+          <table class="table" id="doc-table">
+            <thead><tr><th>Document</th><th>Type</th><th>Pages</th><th>Status</th></tr></thead>
+            <tbody id="doc-rows"></tbody>
+          </table>
+          <p id="no-docs" class="empty">No documents yet. Upload a few related files, for example a set of policies, a project's documents, or reports.</p>
+        </div>
+
+        <article id="doc-view" class="card" hidden>
+          <button class="link small" id="back-to-library" type="button">← All documents</button>
+          <div class="doc-head">
+            <div>
+              <h2 id="doc-title" class="title-lg"></h2>
+              <p class="muted small" id="doc-meta"></p>
+            </div>
+            <div class="actions">
+              <button id="doc-ask" class="primary" type="button">Ask about this document</button>
+              <button id="doc-reprocess" class="secondary" type="button">Re-process</button>
+              <button id="doc-delete" class="danger" type="button">Delete</button>
+            </div>
+          </div>
+          <div id="doc-warnings"></div>
+          <div id="doc-status" class="status" hidden></div>
+          <div id="brief"></div>
+        </article>
+      </section>
+
+      <!-- Ask -->
+      <section id="tab-ask" class="tab" hidden>
+        <div class="ask-layout">
+          <div class="card conv-card">
+            <button id="new-chat" class="primary wide" type="button">New conversation</button>
+            <ul id="chat-list" class="list"></ul>
+            <p id="no-chats" class="muted small">No conversations yet.</p>
+          </div>
+          <div class="card chat-card">
+            <div class="chat-head"><h2 id="chat-title" class="title-lg">Ask your documents</h2><span class="pill" id="chat-scope"></span></div>
+            <div id="messages" class="messages">
+              <div class="empty" id="chat-empty">Answers come only from documents in this collection, with every claim linked to its source.<br>
+                <span class="muted small">Try: “Summarise what changed”, “Who approves expenses above Rs. 50,000?”, “What are the deadlines in November?”</span></div>
+            </div>
+            <form id="ask-form" class="ask-form">
+              <textarea name="content" rows="2" maxlength="2000" placeholder="Ask a question… (Enter to send)" required></textarea>
+              <button type="submit" class="primary" id="ask-submit">Send</button>
+            </form>
+            <p class="error" id="ask-error" role="alert"></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Search -->
+      <section id="tab-search" class="tab" hidden>
+        <div class="card">
+          <form id="search-form" class="row">
+            <input name="query" required minlength="2" placeholder="Search this collection, e.g. notice period">
+            <button type="submit" class="primary">Search</button>
+          </form>
+          <p class="muted small">Hybrid search (meaning + keywords). These are exactly the passages the AI would be given.</p>
+          <div id="search-results"></div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Source viewer -->
+    <aside id="viewer" class="viewer" hidden aria-label="Source viewer">
+      <div class="viewer-head">
+        <div>
+          <div class="muted small" id="viewer-doc"></div>
+          <strong id="viewer-page"></strong>
+        </div>
+        <div class="viewer-nav">
+          <button id="viewer-prev" class="icon-btn" type="button" title="Previous page">‹</button>
+          <button id="viewer-next" class="icon-btn" type="button" title="Next page">›</button>
+          <button id="viewer-close" class="icon-btn" type="button" title="Close">×</button>
+        </div>
+      </div>
+      <div id="viewer-text" class="viewer-text"></div>
+    </aside>
+  </div>
+</body>
+</html>

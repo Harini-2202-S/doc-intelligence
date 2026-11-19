@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.pyc
+*.egg-info/
+build/
+dist/
+.venv/
+
+# Tooling
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.claude/
+.vscode/
+.idea/
+.DS_Store
+
+# Local configuration and data
+.env
+*.db
+data/
+
+# Generated test file (26 MB); create with scripts/make_test_cases.py --oversized
+samples/test_cases/16_oversized_26mb.txt

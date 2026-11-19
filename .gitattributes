@@ -1,0 +1,15 @@
+# Normalise line endings for text files; store them with LF in the repository.
+* text=auto eol=lf
+
+# Binary formats: never convert line endings or diff as text.
+*.pdf  binary
+*.docx binary
+*.pptx binary
+*.xlsx binary
+*.doc  binary
+*.png  binary
+*.jpg  binary
+*.ico  binary
+
+# Test fixtures whose exact bytes matter (encodings, empty file).
+samples/test_cases/*.txt -text
